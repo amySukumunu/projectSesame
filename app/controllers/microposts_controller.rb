@@ -1,16 +1,17 @@
 class MicropostsController < ApplicationController
 	before_filter :authenticate, :only => [:edit, :create, :destroy]
-	before_filter :correct_user, :only => [:edit, :update, :destroy]
+	
 	
 	
 	def index
 		@title = "Blog"
-		@posts = Micropost.paginate(:page => params[:page], :per_page => 5)
+		@posts = Micropost.paginate(:page => params[:page], :per_page => 3)
 	end
 	
 	def show 
-		@title = "Postings"
+		
 		@micropost = Micropost.find(params[:id])
+		@title = "Sesame #{@micropost.title}"
 	end
 	
 	def new

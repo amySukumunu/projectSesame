@@ -3,7 +3,7 @@ ProjectSesame::Application.routes.draw do
 	resources :microposts
   end
   resources :sessions, :only => [:new, :create, :destroy]
-  resources :microposts, :only => [:new, :create, :destroy]
+  resources :microposts
   
   root :to => 'pages#home'
   match '/contact', 	:to => 'pages#contact'
@@ -13,7 +13,7 @@ ProjectSesame::Application.routes.draw do
   match '/signin',   	:to => 'sessions#new'
   match '/signout',   	:to => 'sessions#destroy'
   match '/newpost',   	:to => 'microposts#new'
-  match "/microposts/:id"  => "microposts#show"
+ 
   match "/users/:id"  => "users#show"
   
 end

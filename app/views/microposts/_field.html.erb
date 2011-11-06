@@ -7,8 +7,12 @@
   	<%= f.text_area :content, :row => 30, :cols=> 30 %><br />
   	
   	<%= f.label :category %><br />
-  	<%= f.text_field :category %><br />
-	
+  	
+	<%=  
+  		@category = Micropost.select("category").group("category")
+  		select_tag(:category,  
+   		options_from_collection_for_select(@category, :category, :category))  
+	%>
   		
 	<%= f.submit "Post" %>
 

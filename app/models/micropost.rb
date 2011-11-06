@@ -7,7 +7,8 @@ class Micropost < ActiveRecord::Base
 	validates :user_id, :presence => true
 	validates :title,    :presence => true,
 						 :length => {:maximum =>500}							
-	validates :content,  :presence => true
+	validates :content,  :presence => true,
+						 :length => {:maximum =>3000}							
 	validates :category, :presence => true
 
 

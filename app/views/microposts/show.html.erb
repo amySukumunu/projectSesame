@@ -1,15 +1,11 @@
-<h1>Postings <%= @micropost.id %></h1>
-<table>
-<tr>Title:<%= @micropost.title %><br/></tr>
-<tr>Content: <%= @micropost.content %><br/></tr>
-<tr>Category :<%= @micropost.category %><br/></tr>
-</table>
+<article>
+<h2><%= @micropost.title %></h2>
+<h6>
+	<%= @micropost.created_at.strftime("%d %b %y") %> |
+	<%= link_to "10 Comments",'#' %> |
+	<%= link_to "#{@micropost.category}",'#' %></h6>
+<p><%= @micropost.content %></p>
+<%= render 'settings',:object => @micropost %>
+</article>
 
-<% if signed_in? %>
-
-  	  		
-	<%= link_to "delete", @micropost, :method => :delete, 
-									:confirm => "You sure?",
-                                	:title => "Delete #{@micropost.title}"%>
-<% end %>
 

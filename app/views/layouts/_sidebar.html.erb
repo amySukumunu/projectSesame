@@ -1,0 +1,7 @@
+<h2>Category</h2>
+<ul>
+	<% @micropost = Micropost.select("category").group("category") %>
+	<% @micropost.each do |category| %>
+		<li><%= category.category %></li>
+	<% end %>
+</ul>

@@ -2,16 +2,33 @@
 <html>
 <head>
   <title><%= title %></title>
-  <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= render 'layouts/stylesheets' %>
   <%= csrf_meta_tag %>
 </head>
 <body>
 	
-	<%= render 'layouts/header' %>
-	<%= yield %>
-	<%= render 'layouts/footer' %>
-	<%= debug(params) if Rails.env.development? %>
+		<%= render 'layouts/header' %>
+		
+		<div id="banner-wrap">
+      		<div id="banner" class="container_24 rounded">
+				<%= pagePic %>
+			</div>
+			<p id="breadcrumbs" class="container_24 rounded"> <%= whereAreYou %></p>
+		</div>	
+
+		<div id="main" class="container_24">
+     		<div id="primary" class="grid_15">
+				<%= yield %>
+			</div>
+			<aside id="secondary" class="grid_8 prefix_1">
+				<%= render 'layouts/sidebar' %>
+			</aside>
+		</div>
+		
+		<div id="footer-wrap">footer</div>
+		<%= render 'layouts/footer' %>
+		
+	
 </body>
 </html>

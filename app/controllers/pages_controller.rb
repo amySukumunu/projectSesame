@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
   	@title ="Home"
+  	@pagePic ="home.jpg"
   end
   
   def about
