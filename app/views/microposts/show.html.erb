@@ -1,0 +1,15 @@
+<h1>Postings <%= @micropost.id %></h1>
+<table>
+<tr>Title:<%= @micropost.title %><br/></tr>
+<tr>Content: <%= @micropost.content %><br/></tr>
+<tr>Category :<%= @micropost.category %><br/></tr>
+</table>
+
+<% if signed_in? %>
+
+  	  		
+	<%= link_to "delete", @micropost, :method => :delete, 
+									:confirm => "You sure?",
+                                	:title => "Delete #{@micropost.title}"%>
+<% end %>
+

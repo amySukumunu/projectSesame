@@ -1,0 +1,22 @@
+<h1>Blog</h1>
+
+<%= will_paginate @posts %>
+<ul>
+	<% @posts.each do |post|%>
+	<li>
+  		Title: <%= link_to post.title, post %> <br/>
+  		Content :<%= post.content %><br/>
+  		Category : <%= post.category %><br/>
+  		
+	</li>
+	<li>
+		<% if signed_in? %>
+  			
+  			|<%= link_to "Delete", post, :method => :delete, 
+									:confirm => "You sure?",
+                                	:title => post.title%>
+		<% end %>
+	</li>
+	<% end %>
+</ul>
+<%= will_paginate @posts %>
